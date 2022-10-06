@@ -1,0 +1,23 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("BIRD X HUB", "Synapse")
+local Tab = Window:NewTab("Sword Simulator")
+local Section = Tab:NewSection("Auto Egg")
+Section:NewToggle("Tripple Egg (Request gamepass) ", "ToggleInfo", function(state)
+    if state then
+        while true do
+wait(1)
+local args = {
+    [1] = "Event Egg",
+    [2] = "Hatch3"
+}
+game:GetService("ReplicatedStorage").Remotes.Gameplay.RequestPetPurchase:InvokeServer(unpack(args))
+  end 
+ else
+    end
+end)
+local Section = Tab:NewSection("AFK")
+Section:NewButton("Click on", "Nothing", function()
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+v:Disable()
+end
+end)
