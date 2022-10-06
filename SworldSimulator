@@ -20,4 +20,10 @@ Section:NewButton("Click on", "Nothing", function()
 for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
 v:Disable()
 end
+
+end)
+local Tab = Window:NewTab("Misc")
+local MiscSection = Tab:NewSection("Toggling UI")
+MiscSection:NewKeybind("Change Key", "KeybindInfo", Enum.KeyCode.F, function()
+	Library:ToggleUI()
 end)
