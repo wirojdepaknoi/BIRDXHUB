@@ -17,8 +17,7 @@ game:GetService("ReplicatedStorage").Remotes.Gameplay.RequestPetPurchase:InvokeS
 end)
 local Section = Tab:NewSection("AFK")
 Section:NewButton("Click on", "Nothing", function()
-for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
-v:Disable()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wirojdepaknoi/AFKK/main/AFK", true))() do
 end
 
 end)
