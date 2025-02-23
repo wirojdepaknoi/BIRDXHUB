@@ -1,0 +1,898 @@
+-- Initialize players and ESP table  
+local Players = game:GetService("Players")
+local playerESP = {}
+
+
+-- Create the GUI library and Wait function
+local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
+local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
+
+local PepsisWorld = library:CreateWindow({
+    Name = "SPECTER By BIRD-HUB",
+    Themeable = {
+        Info = "JAOBIRD"
+    }
+})
+
+-- GeneralTab should be created first before usage
+local GeneralTab = PepsisWorld:CreateTab({
+    Name = "หน้าหลัก"
+})
+
+local EquipSection = GeneralTab:CreateSection({
+    Name = "Equip (ต้องถือของก่อน 1 ครั้ง)",
+    Side = "Right"
+})
+
+EquipSection:AddButton({
+    Name = "Spirit Box",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Spirit Box"] or workspace.Van.Equipment["Spirit Box"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Book",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Book"] or workspace.Van.Equipment["Book"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Thermometer",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Thermometer"] or workspace.Van.Equipment["Thermometer"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Paranormal Sensor",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Motion Sensor"] or workspace.Van.Equipment["Motion Sensor"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Ghost Goggles",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Ghost Goggles"] or workspace.Van.Equipment["Ghost Goggles"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Flashlight",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Flashlight"] or workspace.Van.Equipment["Flashlight"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "EMF Reader",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["EMF Reader"] or workspace.Van.Equipment["EMF Reader"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Camera",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Camera"] or workspace.Van.Equipment["Camera"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Sanity Soda",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Sanity Soda"] or workspace.Van.Equipment["Sanity Soda"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Candle",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Candle"] or workspace.Van.Equipment["Candle"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Lighter",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Lighter"] or workspace.Van.Equipment["Lighter"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+EquipSection:AddButton({
+    Name = "Crucifix",
+    Callback = function()
+       local args = {
+    [1] = workspace.Equipment["Crucifix"] or workspace.Van.Equipment["Crucifix"]
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+end
+})
+
+
+local MiscSection = GeneralTab:CreateSection({
+    Name = "Misc",
+    Side = "Right"
+})
+
+MiscSection:AddButton({
+    Name = "ลบท้องฟ้า",
+    Callback = function()
+        for _, object in pairs(game:GetService("Lighting"):GetChildren()) do
+            object:Destroy()
+        end
+    end
+})
+
+MiscSection:AddButton({
+    Name = "ลบประตู", 
+    Callback = function()
+        for _, door in pairs(workspace.Map.Doors:GetChildren()) do
+            door:Destroy()
+        end
+    end
+})
+
+MiscSection:AddButton({
+    Name = "ลบบล็อกล่องหน", 
+    Callback = function()
+-- Get the Blockers folder inside the Map
+    local blockersFolder = game.Workspace.Map:FindFirstChild("Blockers")
+
+-- Check if the Blockers folder exists
+    if blockersFolder then
+    -- Loop through all the children of the Blockers folder and remove them
+         for _, blocker in pairs(blockersFolder:GetChildren()) do
+        blocker:Destroy()
+         end
+    end
+end
+})
+
+MiscSection:AddButton({
+    Name = "ปรับสว่าง", 
+    Callback = function()
+        if not _G.FullBrightExecuted then
+            -- Initial setup of normal lighting settings
+            _G.FullBrightEnabled = false
+
+            local Lighting = game:GetService("Lighting")
+
+            _G.NormalLightingSettings = {
+                Brightness = Lighting.Brightness,
+                ClockTime = Lighting.ClockTime,
+                FogEnd = Lighting.FogEnd,
+                GlobalShadows = Lighting.GlobalShadows,
+                Ambient = Lighting.Ambient
+            }
+
+            local function setFullBright()
+                Lighting.Brightness = 1
+                Lighting.ClockTime = 12
+                Lighting.FogEnd = 786543
+                Lighting.GlobalShadows = false
+                Lighting.Ambient = Color3.fromRGB(178, 178, 178)
+            end
+
+            -- Monitor property changes and apply full bright settings if necessary
+            local function monitorLightingProperty(property, defaultValue, fullValue, setter)
+                Lighting:GetPropertyChangedSignal(property):Connect(function()
+                    if Lighting[property] ~= fullValue and Lighting[property] ~= defaultValue then
+                        _G.NormalLightingSettings[property] = Lighting[property]
+                        if not _G.FullBrightEnabled then
+                            repeat wait() until _G.FullBrightEnabled
+                        end
+                        setter()
+                    end
+                end)
+            end
+
+            -- Monitor and apply the lighting changes
+            monitorLightingProperty("Brightness", _G.NormalLightingSettings.Brightness, 1, function() Lighting.Brightness = 1 end)
+            monitorLightingProperty("ClockTime", _G.NormalLightingSettings.ClockTime, 12, function() Lighting.ClockTime = 12 end)
+            monitorLightingProperty("FogEnd", _G.NormalLightingSettings.FogEnd, 786543, function() Lighting.FogEnd = 786543 end)
+            monitorLightingProperty("GlobalShadows", _G.NormalLightingSettings.GlobalShadows, false, function() Lighting.GlobalShadows = false end)
+            monitorLightingProperty("Ambient", _G.NormalLightingSettings.Ambient, Color3.fromRGB(178, 178, 178), function() Lighting.Ambient = Color3.fromRGB(178, 178, 178) end)
+
+            -- Set initial full bright values
+            setFullBright()
+
+            -- Toggle between full bright and normal lighting
+            local LatestValue = true
+            spawn(function()
+                repeat
+                    wait()
+                until _G.FullBrightEnabled
+                while wait() do
+                    if _G.FullBrightEnabled ~= LatestValue then
+                        if _G.FullBrightEnabled then
+                            setFullBright()
+                        else
+                            Lighting.Brightness = _G.NormalLightingSettings.Brightness
+                            Lighting.ClockTime = _G.NormalLightingSettings.ClockTime
+                            Lighting.FogEnd = _G.NormalLightingSettings.FogEnd
+                            Lighting.GlobalShadows = _G.NormalLightingSettings.GlobalShadows
+                            Lighting.Ambient = _G.NormalLightingSettings.Ambient
+                        end
+                        LatestValue = not LatestValue
+                    end
+                end
+            end)
+        end
+
+        -- Ensure the script runs only once
+        _G.FullBrightExecuted = true
+        _G.FullBrightEnabled = not _G.FullBrightEnabled
+    end
+})
+
+
+-- List of possible questions
+local questions = {
+    "How did you die?",
+    "Are you friendly?",
+    "What do you want?",
+    "What is your name?",
+    "Do you want to hurt me?",
+    "Are you there?",
+    "Where are you?",
+    "How old are you?"
+}
+
+-- Function to send a random message
+local function sendRandomMessage()
+    -- Select a random question from the list
+    local randomQuestion = questions[math.random(1, #questions)]
+    
+    -- Fire the event with the random question
+    local args = { [1] = randomQuestion }
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SimulateChatEvent"):FireServer(unpack(args))
+end
+
+-- Flag to track if the toggle is on or off
+local toggleActive = false
+
+-- Add a keybind that calls the sendRandomMessage function when the key is pressed
+
+
+-- Add a toggle that will send a random message when toggled
+MiscSection:AddToggle({
+    Name = "คุยกับผี",  -- Toggle name
+    Keybind = {
+        Mode = "Dynamic"  -- Dynamic mode means the key will toggle if pressed quickly or use hold if pressed longer than 0.65 seconds
+    },
+    Callback = function()
+        if not toggleActive then
+            toggleActive = true
+            sendRandomMessage()  -- Calls the function to send a random message when the toggle is activated
+        else
+            toggleActive = false
+        end
+    end
+})
+
+
+local FunctionSection = GeneralTab:CreateSection({
+    Name = "รวมฟังชั่น ESP"
+})
+
+
+local espToggle = FunctionSection:AddToggle({ 
+    Name = "ผี",
+    Flag = "ESPFunctionToggle",
+    Callback = function(state)
+        local npcsFolder = workspace:FindFirstChild("NPCs")
+        
+        if npcsFolder then
+            for _, npc in ipairs(npcsFolder:GetChildren()) do
+                local prisoner = npc:FindFirstChild("Base")
+                if prisoner then
+                    -- Create or remove highlight based on toggle state
+                    if state then
+                        local highlight = Instance.new("Highlight")
+                        highlight.Adornee = prisoner
+                        highlight.FillColor = Color3.new(1, 0, 0)
+                        highlight.FillTransparency = 0.7
+                        highlight.OutlineColor = Color3.new(1, 0, 0)
+                        highlight.OutlineTransparency = 0
+                        highlight.Parent = prisoner
+                        prisoner.Transparency = 0
+                    else
+                        -- Remove the highlight and reset transparency when disabled
+                        local existingHighlight = prisoner:FindFirstChildOfClass("Highlight")
+                        if existingHighlight then
+                            existingHighlight:Destroy()
+                        end
+                        prisoner.Transparency = 1  -- Change transparency back to 1 when ESP is off
+                    end
+                end
+            end
+        end
+    end
+})
+
+
+local esptToggle = FunctionSection:AddToggle({ 
+    Name = "ทีม", 
+    Flag = "esptFunctionToggle",
+    Callback = function(state)
+        if state then
+            -- Loop through all players in the game
+            for _, player in pairs(Players:GetPlayers()) do
+                if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    -- Create the highlight effect for ESP
+                    local highlight = Instance.new("Highlight")
+                    highlight.Parent = player.Character  -- Attach ESP effect
+                    highlight.Name = "ESPHighlight"  -- Optionally give it a name for easy removal
+                end
+            end
+        else
+            -- Remove the ESP highlights when the toggle is off
+            for _, player in pairs(Players:GetPlayers()) do
+                if player.Character then
+                    local highlight = player.Character:FindFirstChild("ESPHighlight")
+                    if highlight then
+                        highlight:Destroy()  -- Remove the highlight effect
+                    end
+                end
+            end
+        end
+    end
+})
+
+
+
+local fuseboxToggle = FunctionSection:AddToggle({
+    Name = "กล่องไฟ",
+    Flag = "fuseboxFunctionToggle",
+    Callback = function(state)
+        local fuse = workspace.Map:FindFirstChild("Fusebox")
+        if fuse then
+            if state then
+                -- Create the Highlight instance when the toggle is on
+                local highlight = Instance.new("Highlight")
+                highlight.Adornee = fuse
+                highlight.FillColor = Color3.new(0.003922, 0.247059, 0.568627)  -- A shade of blue
+                highlight.FillTransparency = 0.7
+                highlight.OutlineColor = Color3.new(0.003922, 0.247059, 0.568627)  -- Outline matching fill color
+                highlight.OutlineTransparency = 0  -- Fully visible outline
+                highlight.Parent = fuse  -- Attach the highlight to the fuse
+            else
+                -- Remove the highlight when the toggle is off
+                local existingHighlight = fuse:FindFirstChildOfClass("Highlight")
+                if existingHighlight then
+                    existingHighlight:Destroy()  -- Remove the Highlight
+                end
+            end
+        end
+    end
+})
+
+local boneToggle = FunctionSection:AddToggle({
+    Name = "กระดูก",
+    Flag = "boneFunctionToggle",
+    Callback = function(state)
+local bone = workspace.Map:WaitForChild("Bone")
+if bone then
+    if state then
+        -- Create the Highlight instance when the toggle is on
+        local highlight = Instance.new("Highlight")
+        highlight.Adornee = bone 
+        highlight.FillColor = Color3.new(0.003922, 0.247059, 0.568627)  -- A shade of blue
+        highlight.FillTransparency = 0.7
+        highlight.OutlineColor = Color3.new(0.003922, 0.247059, 0.568627)  -- Outline matching fill color
+        highlight.OutlineTransparency = 0  -- Fully visible outline
+        highlight.Parent = bone  -- Attach the highlight to the bone
+    else
+        -- Remove the highlight when the toggle is off
+        local existingHighlight = bone:FindFirstChildOfClass("Highlight")
+        if existingHighlight then
+            existingHighlight:Destroy()  -- Remove the Highlight
+        end
+    end
+end
+end
+})
+
+
+local CurseToggle = FunctionSection:AddToggle({
+    Name = "คำสาป",  -- Name of the toggle
+    Flag = "CurseFunctionToggle",  -- Flag for saving the state
+    Callback = function(state)
+ local cursedObject = workspace.Map:WaitForChild("cursed_object")
+        if cursedObject then
+            if state then
+                -- Create the Highlight instance when the toggle is on
+                local highlight = Instance.new("Highlight")
+                highlight.Adornee = cursedObject
+                highlight.FillColor = Color3.new(0.003922, 0.247059, 0.568627)  -- A shade of blue
+                highlight.FillTransparency = 0.7
+                highlight.OutlineColor = Color3.new(0.003922, 0.247059, 0.568627)  -- Outline matching fill color
+                highlight.OutlineTransparency = 0  -- Fully visible outline
+                highlight.Parent = cursedObject  -- Attach the highlight to the cursed_object
+            else
+                -- Remove the highlight when the toggle is off
+                local existingHighlight = cursedObject:FindFirstChildOfClass("Highlight")
+                if existingHighlight then
+                    existingHighlight:Destroy()  -- Remove the Highlight
+                end
+            end
+        end
+    end
+}) 
+
+local ClosetsToggle = FunctionSection:AddToggle({ 
+    Name = "ตู้",
+    Flag = "ClosetsFunctionToggle",
+    Callback = function(state)
+        local Closets = workspace.Map:FindFirstChild("Closets")
+        if Closets then
+            for _, closetItem in ipairs(Closets:GetChildren()) do
+                if closetItem:IsA("Model") then
+                    if state then
+                        -- Create the Highlight instance when the toggle is on
+                        local highlight = Instance.new("Highlight")
+                        highlight.Adornee = closetItem
+                        highlight.FillColor = Color3.new(0.003922, 0.247059, 0.568627)  -- A shade of blue
+                        highlight.FillTransparency = 0.7
+                        highlight.OutlineColor = Color3.new(0.003922, 0.247059, 0.568627)  -- Outline matching fill color
+                        highlight.OutlineTransparency = 0  -- Fully visible outline
+                        highlight.Parent = closetItem  -- Attach the highlight to each model in the Closets folder
+                    else
+                        -- Remove the highlight when the toggle is off
+                        local existingHighlight = closetItem:FindFirstChildOfClass("Highlight")
+                        if existingHighlight then
+                            existingHighlight:Destroy()  -- Remove the Highlight
+                        end
+                    end
+                end
+            end
+        end
+    end
+})
+
+
+
+local Function2Section = GeneralTab:CreateSection({
+    Name = "รวมฟังชั่น INF"
+ })   
+
+local InfiniteStaminaToggle = Function2Section:AddToggle({
+    Name = "INFStamina",
+    Flag = "InfiniteStaminaFunctionToggle",
+    Callback = function(state)
+        local InfiniteStamina = state  -- Set InfiniteStamina to the toggle state directly
+
+-- Listen for changes to the 'Stamina' attribute
+game.Players.LocalPlayer:GetAttributeChangedSignal('Stamina'):Connect(function()
+    if InfiniteStamina then
+        -- When InfiniteStamina is enabled, set Stamina to 100
+        game.Players.LocalPlayer:SetAttribute('Stamina', 100)
+    else
+        -- When InfiniteStamina is disabled, also set Stamina to 100
+        game.Players.LocalPlayer:SetAttribute('Stamina', 100)
+    end
+end)
+end
+ })
+
+local InfiniteSanityToggle = Function2Section:AddToggle({
+    Name = "INFSanity",
+    Flag = "InfiniteSanityFunctionToggle",
+    Callback = function(state)
+        local InfiniteSanity = state  -- Set InfiniteStamina to the toggle state directly
+
+-- Listen for changes to the 'Stamina' attribute
+game.Players.LocalPlayer:GetAttributeChangedSignal('Sanity'):Connect(function()
+    if InfiniteSanity then
+        -- When InfiniteStamina is enabled, set Stamina to 100
+        game.Players.LocalPlayer:SetAttribute('Sanity', 100)
+    else
+        -- When InfiniteStamina is disabled, also set Stamina to 100
+        game.Players.LocalPlayer:SetAttribute('Sanity', 100)
+    end
+end)
+end
+ })
+
+
+local Function3Section = GeneralTab:CreateSection({
+    Name = "รวมฟังชั่น Evidence"
+ })   
+
+
+
+local EMFButton = Function3Section:AddButton({  
+    Name = "EMF",  -- Name of the toggle is now "EMF"
+    Flag = "EMFFunctionbutton",
+    Callback = function(state)
+  -- Set up the folder path
+local EMF = workspace.Dynamic.Evidence.EMF
+
+-- Function to create ESP
+local function createESP(part)
+    -- Make sure part is valid
+    if not part or not part:IsA("BasePart") then return end
+
+    -- Create a BillboardGui to display the ESP
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = part
+    billboard.Parent = part
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.StudsOffset = Vector3.new(0, 5, 0) -- Position the text above the part
+    billboard.AlwaysOnTop = true
+
+    -- Create a text label to show the part's name
+    local label = Instance.new("TextLabel")
+    label.Parent = billboard
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = part.Name
+    label.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color
+    label.TextSize = 20
+    label.TextStrokeTransparency = 0.8
+    label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0) -- Black outline for the text
+end
+
+-- Listen for when new parts are added to the folder
+EMF.DescendantAdded:Connect(function(child)
+    if child:IsA("BasePart") then
+        createESP(child)
+    end
+end)
+end
+})
+
+
+local EsporbButton = Function3Section:AddButton({ 
+    Name = "Orb",  -- Name of the toggle is now "Orb"
+    Flag = "EspOrbFunctionBotton",
+    Callback = function(state)
+            local Orbs = workspace.Dynamic.Evidence.Orbs
+
+local function createESP(part)
+    -- Make sure part is valid
+    if not part or not part:IsA("BasePart") then return end
+
+    -- Create a BillboardGui to display the ESP
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = part
+    billboard.Parent = part
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.StudsOffset = Vector3.new(0, 5, 0) -- Position the text above the part
+    billboard.AlwaysOnTop = true
+
+    -- Create a text label to show the part's name
+    local label = Instance.new("TextLabel")
+    label.Parent = billboard
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = part.Name
+    label.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color
+    label.TextSize = 20
+    label.TextStrokeTransparency = 0.8
+    label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0) -- Black outline for the text
+end
+
+-- Listen for when new parts are added to the folder
+Orbs.DescendantAdded:Connect(function(child)
+    if child:IsA("BasePart") then
+        createESP(child)
+    end
+end)
+end
+})
+
+
+
+
+local GWButton = Function3Section:AddButton({
+    Name = "Ghost Writing",
+    Flag = "GWFunctionButton",
+    Callback = function(state)
+       -- List of decal names you want to handle
+local decalNames = {"Smile", "Kill", "Blood", "Leave me","I am here"}
+
+-- Function to create ESP for a decal
+local function createESPForDecal(decal)
+    -- Make sure decal is valid
+    if not decal or not decal:IsA("Decal") then return end
+
+    -- Create a BillboardGui to display the ESP
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = decal.Parent  -- Parent of the decal (most likely the part it's applied to)
+    billboard.Parent = decal.Parent
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.StudsOffset = Vector3.new(0, 5, 0) -- Position the text above the part
+    billboard.AlwaysOnTop = true
+
+    -- Create a text label to show the decal's name
+    local label = Instance.new("TextLabel")
+    label.Parent = billboard
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = decal.Name
+    label.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color
+    label.TextSize = 20
+    label.TextStrokeTransparency = 0.8
+    label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0) -- Black outline for the text
+end
+
+-- Function to check and create ESP for decals in a given folder
+local function checkAndCreateESPForDecalInFolder(folder)
+    -- Loop over all decals in the folder
+    for _, decal in pairs(folder:GetChildren()) do
+        if decal:IsA("Decal") and table.find(decalNames, decal.Name) then
+            createESPForDecal(decal)
+        end
+    end
+end
+
+-- Create ESP for decals in the initial RightPage and LeftPage
+checkAndCreateESPForDecalInFolder(workspace.Equipment.Book.RightPage)
+checkAndCreateESPForDecalInFolder(workspace.Equipment.Book.LeftPage)
+
+-- Listen for when new decals are added to the RightPage and LeftPage
+workspace.Equipment.Book.RightPage.DescendantAdded:Connect(function(child)
+    if child:IsA("Decal") and table.find(decalNames, child.Name) then
+        createESPForDecal(child)
+    end
+end)
+
+workspace.Equipment.Book.LeftPage.DescendantAdded:Connect(function(child)
+    if child:IsA("Decal") and table.find(decalNames, child.Name) then
+        createESPForDecal(child)
+    end
+end)
+end
+ })  
+
+ local EspfingerToggle = Function3Section:AddToggle({
+    Name = "Fingerprint",
+    Flag = "EspfringerFunctionToggle",
+    Callback = function(state)
+        -- Define the folder in the workspace where fingerprints are located
+              local Fingerprints = workspace.Dynamic.Evidence.Fingerprints
+
+        -- Function to create ESP
+        local function createESP(part)
+            -- Make sure part is valid
+            if not part or not part:IsA("BasePart") then return end
+
+            -- Create a BillboardGui to display the ESP
+            local billboard = Instance.new("BillboardGui")
+            billboard.Adornee = part
+            billboard.Parent = part
+            billboard.Size = UDim2.new(0, 200, 0, 50)
+            billboard.StudsOffset = Vector3.new(0, 5, 0) -- Position the text above the part
+            billboard.AlwaysOnTop = true
+
+            -- Create a text label to show the part's name
+            local label = Instance.new("TextLabel")
+            label.Parent = billboard
+            label.Size = UDim2.new(1, 0, 1, 0)
+            label.BackgroundTransparency = 1
+            label.Text = part.Name
+            label.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color
+            label.TextSize = 20
+            label.TextStrokeTransparency = 0.8
+            label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0) -- Black outline for the text
+        end
+
+        -- Handle toggle state change (either create or remove ESP)
+        if state then
+            -- Example: Iterate over all Fingerprint parts in the workspace
+            for _, part in ipairs(Fingerprints:GetChildren()) do
+                if part:IsA("BasePart") then
+                    createESP(part)
+                end
+            end
+        else
+            -- Remove the ESP from all parts
+            for _, part in ipairs(Fingerprints:GetChildren()) do
+                if part:IsA("BasePart") then
+                    -- Look for BillboardGui attached to each part
+                    for _, obj in ipairs(part:GetChildren()) do
+                        if obj:IsA("BillboardGui") then
+                            obj:Destroy()
+                        end
+                    end
+                end
+            end
+        end
+    end
+})
+
+local Function4Section = GeneralTab:CreateSection({
+    Name = "รวมฟังชั่น Teleport"
+ })   
+
+local TPVanButton = Function4Section:AddButton({
+    Name = "รถ",
+    Side = "Left",
+    Flag = "TPVanFunctionButton",
+    Callback = function(state)
+               local player = game.Players.LocalPlayer
+local target = workspace.VanTP
+
+-- Teleport the player to the target's position
+if target then
+    player.Character:SetPrimaryPartCFrame(target.CFrame)
+end
+    end
+})
+
+local TPGhostButton = Function4Section:AddButton({
+    Name = "ห้องผี (ใช้หลังจากเปิดประตูรถทันที)",
+    Side = "Left",
+    Flag = "TPGhostFunctionButton",
+    Callback = function(state)
+ local player = game.Players.LocalPlayer
+        local npcsFolder = workspace.NPCs  -- The folder where NPCs are located
+
+-- Loop through each NPC in the folder
+for _, target in pairs(npcsFolder:GetChildren()) do
+    -- Check if the NPC has a valid CFrame (ensure it's not a non-model or missing part)
+    if target:IsA("Model") and target.PrimaryPart then
+        -- Calculate a position in front of the NPC (adjust the -5 for distance)
+        local frontPosition = target.PrimaryPart.CFrame * CFrame.new(0, 0, -5)
+
+        -- Teleport the player to the new position in front of the NPC
+        player.Character:SetPrimaryPartCFrame(frontPosition)
+    end
+end
+end
+})
+
+local TPFuseButton = Function4Section:AddButton({
+    Name = "กล่องไฟ",
+    Side = "Left",
+    Flag = "TPFuseFunctionButton",
+    Callback = function(state)
+  local player = game.Players.LocalPlayer
+local target = workspace.Map.Fusebox.On
+
+-- Check if the target exists
+if target and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+    -- Teleport the player to the target's position
+    player.Character:SetPrimaryPartCFrame(target.CFrame)
+else
+    warn("Player or target not found.")
+end
+end
+})
+
+
+local TPBoneButton = Function4Section:AddButton({
+    Name = "กระดูก",
+    Side = "Right",
+    Flag = "TPBoneFunctionButton",
+    Callback = function(state)
+local bone = workspace.Map:WaitForChild("Bone")
+
+-- Example: Teleport a player above the Bone position
+local player = game.Players.LocalPlayer -- assuming this is a LocalScript
+if player and bone then
+    local bonePosition = bone.Position
+    -- Set a small offset above the bone (e.g., 5 studs above)
+    local offset = Vector3.new(0, 5, 0)
+    -- Teleport the player above the bone
+    player.Character:SetPrimaryPartCFrame(CFrame.new(bonePosition + offset))
+end
+end
+})
+
+
+local TPCurseButton = Function4Section:AddButton({
+    Name = "คำสาป",
+    Side = "Right",
+    Flag = "TPCurseFunctionButton",
+    Callback = function(state)
+        local cursedObject = workspace.Map:WaitForChild("cursed_object")
+
+        local player = game.Players.LocalPlayer -- assuming this is a LocalScript
+        if player and cursedObject then
+            -- If cursed_object is a MeshPart (single MeshPart)
+            if cursedObject:IsA("MeshPart") then
+                player.Character:SetPrimaryPartCFrame(cursedObject.CFrame)
+            
+            -- If cursed_object is a Model (check for MeshParts inside the model)
+            elseif cursedObject:IsA("Model") then
+                -- Try to teleport to the first MeshPart in the Model
+                local targetMeshPart = cursedObject:FindFirstChildWhichIsA("MeshPart")
+                if targetMeshPart then
+                    player.Character:SetPrimaryPartCFrame(targetMeshPart.CFrame)
+                else
+                    -- If there is no MeshPart, teleport to the Model's primary part (if it exists)
+                    local primaryPart = cursedObject.PrimaryPart
+                    if primaryPart then
+                        player.Character:SetPrimaryPartCFrame(primaryPart.CFrame)
+                    else
+                        warn("No MeshPart or PrimaryPart found in cursed_object model!")
+                    end
+                end
+            end
+        end
+    end
+})
+
+
+local TPClosetButton = Function4Section:AddButton({
+    
+    Name = "ตู้",
+    Side = "Right",
+    Flag = "TPClosetFunctionButton",
+    Callback = function(state)
+     -- Get the player
+local player = game.Players.LocalPlayer.Character
+
+-- Find all the door models in the workspace (or in a specific location, such as a map)
+local doorModels = workspace.Map:GetDescendants() -- Or specify another path if needed
+
+-- Filter out only the door models (assuming they are identifiable by their name or type)
+local doors = {}
+for _, obj in ipairs(doorModels) do
+    if obj:IsA("Model") and obj.Name == "Door" then
+        table.insert(doors, obj)
+    end
+end
+
+-- Check if there are any doors
+if #doors > 0 then
+    -- Pick a random door model
+    local randomDoor = doors[math.random(1, #doors)]
+    
+    -- Teleport the player to the random door's PrimaryPart position
+    player:SetPrimaryPartCFrame(randomDoor.PrimaryPart.CFrame)
+else
+    warn("No doors found.")
+end
+end
+})
