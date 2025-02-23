@@ -896,3 +896,36 @@ else
 end
 end
 })
+
+local TPSinkButton = Function4Section:AddButton({
+    
+    Name = "อ่างล้างมือ",
+    Side = "Right",
+    Flag = "TPSinkFunctionButton",
+    Callback = function(state)
+     -- Get the player
+local player = game.Players.LocalPlayer.Character
+
+-- Find all the parts inside the Sinks in the workspace (or in a specific location, such as a map)
+local sinkParts = workspace.Map.EventObjects.Sinks:GetDescendants()
+
+-- Filter out only the parts (assuming they are identifiable by their name or type)
+local sinks = {}
+for _, obj in ipairs(sinkParts) do
+    if obj:IsA("Part") and obj.Name == "Water" then  -- or you can use a specific name/type if needed
+        table.insert(sinks, obj)
+    end
+end
+
+-- Check if there are any sink parts
+if #sinks > 0 then
+    -- Pick a random sink part
+    local randomSink = sinks[math.random(1, #sinks)]
+    
+    -- Teleport the player to the random sink part's position
+    player:SetPrimaryPartCFrame(randomSink.CFrame)
+else
+    warn("No sink parts found.")
+end
+end
+})
