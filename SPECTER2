@@ -20,139 +20,331 @@ local GeneralTab = PepsisWorld:CreateTab({
 })
 
 local EquipSection = GeneralTab:CreateSection({
-    Name = "Equip (ต้องถือของก่อน 1 ครั้ง)",
+    Name = "Equip",
     Side = "Right"
 })
 
 EquipSection:AddButton({
     Name = "Spirit Box",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Spirit Box"] or workspace.Van.Equipment["Spirit Box"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Spirit Box' exists under 'workspace.Equipment'
+local spiritBox = workspace.Equipment:FindFirstChild("Spirit Box")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not spiritBox then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Spirit Box' is inside the 'Van' model, in a part or folder
+        spiritBox = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Spirit Box")
+    end
+end
+
+-- If 'Spirit Box' is found, pack it in args and invoke the server
+if spiritBox then
+    table.insert(args, spiritBox)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Spirit Box not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Book",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Book"] or workspace.Van.Equipment["Book"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Book' exists under 'workspace.Equipment'
+local book = workspace.Equipment:FindFirstChild("Book")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not book then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Book' is inside the 'Van' model, in a part or folder
+        book = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Book")
+    end
+end
+
+-- If 'Book' is found, pack it in args and invoke the server
+if book then
+    table.insert(args, book)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Book not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Thermometer",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Thermometer"] or workspace.Van.Equipment["Thermometer"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Thermometer' exists under 'workspace.Equipment'
+local thermometer = workspace.Equipment:FindFirstChild("Thermometer")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not thermometer then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Thermometer' is inside the 'Van' model, in a part or folder
+        thermometer = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Thermometer")
+    end
+end
+
+-- If 'Thermometer' is found, pack it in args and invoke the server
+if thermometer then
+    table.insert(args, thermometer)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Thermometer not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Paranormal Sensor",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Motion Sensor"] or workspace.Van.Equipment["Motion Sensor"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Motion Sensor' exists under 'workspace.Equipment'
+local MotionSensor = workspace.Equipment:FindFirstChild("Motion Sensor")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not MotionSensor then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Motion Sensor' is inside the 'Van' model, in a part or folder
+        MotionSensor = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Motion Sensor")
+    end
+end
+
+-- If 'Motion Sensor' is found, pack it in args and invoke the server
+if MotionSensor then
+    table.insert(args, MotionSensor)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Paranormal Sensor not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Ghost Goggles",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Ghost Goggles"] or workspace.Van.Equipment["Ghost Goggles"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Ghost Goggles' exists under 'workspace.Equipment'
+local ghostGoggles = workspace.Equipment:FindFirstChild("Ghost Goggles")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not ghostGoggles then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Ghost Goggles' is inside the 'Van' model, in a part or folder
+        ghostGoggles = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Ghost Goggles")
+    end
+end
+
+-- If 'Ghost Goggles' is found, pack it in args and invoke the server
+if ghostGoggles then
+    table.insert(args, ghostGoggles)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Ghost Goggles not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Flashlight",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Flashlight"] or workspace.Van.Equipment["Flashlight"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Flashlight' exists under 'workspace.Equipment'
+local flashlight = workspace.Equipment:FindFirstChild("Flashlight")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not flashlight then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Flashlight' is inside the 'Van' model, in a part or folder
+        flashlight = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Flashlight")
+    end
+end
+
+-- If 'Flashlight' is found, pack it in args and invoke the server
+if flashlight then
+    table.insert(args, flashlight)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Flashlight not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "EMF Reader",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["EMF Reader"] or workspace.Van.Equipment["EMF Reader"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'EMF Reader' exists under 'workspace.Equipment'
+local emfReader = workspace.Equipment:FindFirstChild("EMF Reader")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not emfReader then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'EMF Reader' is inside the 'Van' model, in a part or folder
+        emfReader = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("EMF Reader")
+    end
+end
+
+-- If 'EMF Reader' is found, pack it in args and invoke the server
+if emfReader then
+    table.insert(args, emfReader)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("EMF Reader not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Camera",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Camera"] or workspace.Van.Equipment["Camera"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Camera' exists under 'workspace.Equipment'
+local camera = workspace.Equipment:FindFirstChild("Camera")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not camera then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Camera' is inside the 'Van' model, in a part or folder
+        camera = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Camera")
+    end
+end
+
+-- If 'Camera' is found, pack it in args and invoke the server
+if camera then
+    table.insert(args, camera)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Camera not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Sanity Soda",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Sanity Soda"] or workspace.Van.Equipment["Sanity Soda"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Sanity Soda' exists under 'workspace.Equipment'
+local sanitySoda = workspace.Equipment:FindFirstChild("Sanity Soda")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not sanitySoda then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Sanity Soda' is inside the 'Van' model, in a part or folder
+        sanitySoda = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Sanity Soda")
+    end
+end
+
+-- If 'Sanity Soda' is found, pack it in args and invoke the server
+if sanitySoda then
+    table.insert(args, sanitySoda)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Sanity Soda not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Candle",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Candle"] or workspace.Van.Equipment["Candle"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Candle' exists under 'workspace.Equipment'
+local candle = workspace.Equipment:FindFirstChild("Candle")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not candle then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Candle' is inside the 'Van' model, in a part or folder
+        candle = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Candle")
+    end
+end
+
+-- If 'Candle' is found, pack it in args and invoke the server
+if candle then
+    table.insert(args, candle)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Candle not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Lighter",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Lighter"] or workspace.Van.Equipment["Lighter"]
-}
+      local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Lighter' exists under 'workspace.Equipment'
+local lighter = workspace.Equipment:FindFirstChild("Lighter")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not lighter then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Lighter' is inside the 'Van' model, in a part or folder
+        lighter = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Lighter")
+    end
+end
+
+-- If 'Lighter' is found, pack it in args and invoke the server
+if lighter then
+    table.insert(args, lighter)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Lighter not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
 EquipSection:AddButton({
     Name = "Crucifix",
     Callback = function()
-       local args = {
-    [1] = workspace.Equipment["Crucifix"] or workspace.Van.Equipment["Crucifix"]
-}
+       local args = {}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+-- Check if 'Crucifix' exists under 'workspace.Equipment'
+local crucifix = workspace.Equipment:FindFirstChild("Crucifix")
+
+-- If not found in workspace.Equipment, check if it's in workspace.Van
+if not crucifix then
+    local van = workspace:FindFirstChild("Van")
+    if van then
+        -- Assuming 'Crucifix' is inside the 'Van' model, in a part or folder
+        crucifix = van:FindFirstChild("Equipment") and van.Equipment:FindFirstChild("Crucifix")
+    end
+end
+
+-- If 'Crucifix' is found, pack it in args and invoke the server
+if crucifix then
+    table.insert(args, crucifix)
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("PickupItem"):InvokeServer(unpack(args))
+else
+    warn("Crucifix not found in either workspace.Equipment or workspace.Van.Equipment")
+end
 end
 })
 
