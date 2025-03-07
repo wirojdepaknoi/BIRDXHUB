@@ -1,0 +1,415 @@
+-- Load Kavo UI Library using asset ID
+local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
+
+-- Create the main window
+local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
+
+local PepsisWorld = library:CreateWindow({
+Name = "Rock Fruit",
+Themeable = {
+Info = "Discord Server: VzYTJ7Y"
+}
+})
+local GeneralTab = PepsisWorld:CreateTab({
+Name = "หน้าหลัก"
+})
+
+local MiscSection = GeneralTab:CreateSection({
+Name = "Misc",
+Side = "Right"
+})
+
+MiscSection:AddButton({
+Name = "ลบตึกจุดฟาร์มแคนดี้",
+Callback = function()
+local target = workspace.Island["\224\185\128\224\184\129\224\184\178\224\184\176 Valentine"]:GetChildren()[4]
+if target.ic then
+    target.ic:Destroy()
+end
+end
+})
+
+MiscSection:AddButton({
+Name = "วาปไปฟาร์มแคนดี้โลก2",
+Callback = function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2586.87841796875, 20.383625030517578, 824.5443725585938)
+end
+})
+
+MiscSection:AddButton({
+Name = "วาปไปหาฉลาม",
+Callback = function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-587.89208984375, 5.110991954803467, -362.34820556640625)
+end
+})
+
+local virtualInputManager = game:GetService("VirtualInputManager")
+
+-- Variables to track if the keys are toggled on or off
+local zToggled = false
+local xToggled = false
+local cToggled = false
+local vToggled = false
+local fToggled = false
+local jToggled = false
+
+-- Flags to control looping
+local zLooping = false
+local xLooping = false
+local cLooping = false
+local vLooping = false
+local fLooping = false
+
+-- Function to send Z key events continuously
+local function loopZKey()
+    while zLooping do
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.Z, false, game)  -- Key down
+        wait(0.1)  -- Delay between each key press
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.Z, false, game)  -- Key up
+        wait(0.1)  -- Delay before the next loop
+    end
+end
+
+-- Function to send X key events continuously
+local function loopXKey()
+    while xLooping do
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.X, false, game)  -- Key down
+        wait(0.1)  -- Delay between each key press
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.X, false, game)  -- Key up
+        wait(0.1)  -- Delay before the next loop
+    end
+end
+
+-- Function to send C key events continuously
+local function loopCKey()
+    while cLooping do
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.C, false, game)  -- Key down
+        wait(0.1)  -- Delay between each key press
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.C, false, game)  -- Key up
+        wait(0.1)  -- Delay before the next loop
+    end
+end
+
+-- Function to send V key events continuously
+local function loopVKey()
+    while vLooping do
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.V, false, game)  -- Key down
+        wait(0.1)  -- Delay between each key press
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.V, false, game)  -- Key up
+        wait(0.1)  -- Delay before the next loop
+    end
+end
+
+-- Function to send F key events continuously
+local function loopFKey()
+    while fLooping do
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)  -- Key down
+        wait(0.1)  -- Delay between each key press
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)  -- Key up
+        wait(0.1)  -- Delay before the next loop
+    end
+end
+
+-- Function to toggle the J key on or off (no loop)
+local function toggleJ()
+    jToggled = not jToggled
+    if jToggled then
+        -- Simulate the J key press (key down)
+        virtualInputManager:SendKeyEvent(true, Enum.KeyCode.J, false, game)
+        wait(0.1)  -- Wait for a short time before releasing the key
+        -- Simulate the J key release (key up)
+        virtualInputManager:SendKeyEvent(false, Enum.KeyCode.J, false, game)
+    end
+end
+
+-- Toggle the Z key on or off
+local function toggleZ()
+    zToggled = not zToggled
+    if zToggled then
+        zLooping = true
+        spawn(loopZKey)  -- Start the loop for Z key in a coroutine
+    else
+        zLooping = false
+    end
+end
+
+-- Toggle the X key on or off
+local function toggleX()
+    xToggled = not xToggled
+    if xToggled then
+        xLooping = true
+        spawn(loopXKey)  -- Start the loop for X key in a coroutine
+    else
+        xLooping = false
+    end
+end
+
+-- Toggle the C key on or off
+local function toggleC()
+    cToggled = not cToggled
+    if cToggled then
+        cLooping = true
+        spawn(loopCKey)  -- Start the loop for C key in a coroutine
+    else
+        cLooping = false
+    end
+end
+
+-- Toggle the V key on or off
+local function toggleV()
+    vToggled = not vToggled
+    if vToggled then
+        vLooping = true
+        spawn(loopVKey)  -- Start the loop for V key in a coroutine
+    else
+        vLooping = false
+    end
+end
+
+-- Toggle the F key on or off
+local function toggleF()
+    fToggled = not fToggled
+    if fToggled then
+        fLooping = true
+        spawn(loopFKey)  -- Start the loop for F key in a coroutine
+    else
+        fLooping = false
+    end
+end
+
+
+local SkillSection = GeneralTab:CreateSection({
+    Name = "ออโต้สกิล"
+})
+
+-- Add Z Toggle Button
+SkillSection:AddToggle({
+    Name = "Z",
+    Flag = "SkillSection",
+    Callback = function()
+        zToggled = not zToggled  -- Toggle the state of Z
+        if zToggled then
+            -- Start looping Z key
+            zLooping = true
+            coroutine.wrap(loopZKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(1).Text = "Z: On"
+            MainSection:GetButton(1).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping Z key
+            zLooping = false
+            MainSection:GetButton(1).Text = "Z: Off"
+            MainSection:GetButton(1).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+-- Add X Toggle Button
+SkillSection:AddToggle({
+    Name = "X",
+    Flag = "SkillSection",
+    Callback = function()
+        xToggled = not xToggled  -- Toggle the state of X
+        if xToggled then
+            -- Start looping X key
+            xLooping = true
+            coroutine.wrap(loopXKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(2).Text = "X: On"
+            MainSection:GetButton(2).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping X key
+            xLooping = false
+            MainSection:GetButton(2).Text = "X: Off"
+            MainSection:GetButton(2).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+-- Add C Toggle Button
+SkillSection:AddToggle({
+    Name = "C",
+    Flag = "SkillSection",
+    Callback = function()
+        cToggled = not cToggled  -- Toggle the state of C
+        if cToggled then
+            -- Start looping C key
+            cLooping = true
+            coroutine.wrap(loopCKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(3).Text = "C: On"
+            MainSection:GetButton(3).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping C key
+            cLooping = false
+            MainSection:GetButton(3).Text = "C: Off"
+            MainSection:GetButton(3).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+-- Add V Toggle Button
+SkillSection:AddToggle({
+    Name = "V",
+    Flag = "SkillSection",
+    Callback = function()
+        vToggled = not vToggled  -- Toggle the state of V
+        if vToggled then
+            -- Start looping V key
+            vLooping = true
+            coroutine.wrap(loopVKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(4).Text = "V: On"
+            MainSection:GetButton(4).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping V key
+            vLooping = false
+            MainSection:GetButton(4).Text = "V: Off"
+            MainSection:GetButton(4).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+-- Add F Toggle Button
+SkillSection:AddToggle({
+    Name = "F",
+    Flag = "SkillSection",
+    Callback = function()
+        fToggled = not fToggled  -- Toggle the state of F
+        if fToggled then
+            -- Start looping F key
+            fLooping = true
+            coroutine.wrap(loopFKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(5).Text = "F: On"
+            MainSection:GetButton(5).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping F key
+            fLooping = false
+            MainSection:GetButton(5).Text = "F: Off"
+            MainSection:GetButton(5).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+SkillSection:AddToggle({
+    Name = "ฮาคิ",
+    Flag = "SkillSection",
+    Callback = function()
+        jToggled = not jToggled  -- Toggle the state of F
+        if jToggled then
+            -- Start looping F key
+            jLooping = true
+            coroutine.wrap(loopFKey)()  -- Run the loop in a coroutine to prevent blocking
+            MainSection:GetButton(5).Text = "J: On"
+            MainSection:GetButton(5).BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green for on
+        else
+            -- Stop looping F key
+            jLooping = false
+            MainSection:GetButton(5).Text = "J: Off"
+            MainSection:GetButton(5).BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Red for off
+        end
+    end
+})
+
+
+
+
+local TPislandSection = GeneralTab:CreateSection({
+    Name = "รวมวาป"
+})
+
+-- Function to generate a list of model names from workspace.Island
+local function getIslandModels()
+    local islandModels = {}
+
+    -- Check if workspace.Island exists
+    if workspace:FindFirstChild("Island") then
+        -- Loop through all the models (or children) under workspace.Island
+        for _, model in pairs(workspace.Island:GetChildren()) do
+            -- Check if the child is a model (you can customize this check as needed)
+            if model:IsA("Model") then
+                table.insert(islandModels, model.Name)  -- Add the model's name to the list
+            end
+        end
+    end
+
+    return islandModels
+end
+
+-- Get the list of island models
+local islandList = getIslandModels()
+
+-- Create a variable to store the selected island
+local selectedIsland = islandList[1] or "No Islands"
+
+-- Add the dropdown to the section with the list of models
+TPislandSection:AddDropdown({
+    Name = "เลือกเกาะ",  -- Dropdown title
+    Value = selectedIsland,  -- Default selected value (first island or "No Islands")
+    Callback = function(NewValue, LastValue)
+        print("Island changed from", LastValue, "to", NewValue)
+        selectedIsland = NewValue  -- Update the selected island
+    end,
+    List = islandList,  -- List populated with model names from workspace.Island
+    MultiSelect = false,  -- If you want multi-selection or not (set true for multiple selections)
+    Sort = true,  -- Whether to sort the list alphabetically
+    ItemAdded = function(Item, AllItems)
+        print("Item added:", Item)
+    end,
+    ItemChanged = function(Item, SelectedState, Items)
+        print("Item changed:", Item, "SelectedState:", SelectedState)
+    end,
+    Filter = function(ValueToCheck)
+        return ValueToCheck:match("Island") ~= nil  -- Filter to show only options with "Island"
+    end,
+    ScrollRate = 5,  -- The scroll rate when using the scroll buttons
+})
+
+-- Function to calculate the center of a model
+local function getModelCenter(model)
+    local totalPosition = Vector3.new(0, 0, 0)
+    local partCount = 0
+
+    -- Loop through all the parts in the model and sum up their positions
+    for _, part in pairs(model:GetChildren()) do
+        if part:IsA("BasePart") then
+            totalPosition = totalPosition + part.Position
+            partCount = partCount + 1
+        end
+    end
+
+    -- If there are parts in the model, calculate the average position
+    if partCount > 0 then
+        return totalPosition / partCount
+    else
+        -- If there are no parts, return a default position (e.g., 0,0,0)
+        return Vector3.new(0, 0, 0)
+    end
+end
+
+-- Add the button that teleports the player
+TPislandSection:AddButton({
+    Name = "ตกลง",
+    Callback = function()
+        -- Check if the selected island exists
+        local islandModel = workspace.Island:FindFirstChild(selectedIsland)
+
+        if islandModel then
+            -- Get the center of the model (average position of all BaseParts)
+            local modelCenter = getModelCenter(islandModel)
+
+            -- Assuming the player is the local player, teleport them to the model center
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                -- Teleport the player to the center of the model
+                character.HumanoidRootPart.CFrame = CFrame.new(modelCenter)
+                print("Teleported to center of island:", selectedIsland)
+            else
+                print("Player's character not found or no HumanoidRootPart.")
+            end
+        else
+            print("Selected island model does not exist.")
+        end
+    end    
+})
+
+
+
